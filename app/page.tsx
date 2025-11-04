@@ -49,7 +49,7 @@ export default function Home() {
         </p>
 
         {/* Parents of the Groom */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right rounded shadow-lg">
+        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right ">
           <h3 className={`${greatVibes.className} text-4xl tracking-wide`}>
             Parents of the Groom
           </h3>
@@ -58,7 +58,7 @@ export default function Home() {
         </div>
 
         {/* Parents of the Bride */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left rounded shadow-lg">
+        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left ">
           <h3 className={`${greatVibes.className} text-4xl tracking-wide`}>
             Parents of the Bride
           </h3>
@@ -69,7 +69,7 @@ export default function Home() {
 
       {/* Principal Sponsors */}
       <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center">
-        <div className="col-span-12 bg-white p-8 space-y-2 rounded shadow-lg">
+        <div className="col-span-12 bg-white p-8 space-y-2">
           <p className={`${greatVibes.className} text-4xl font-semibold text-gray-800`}>
             Principal Sponsors
           </p>
@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* Secondary Sponsors */}
       <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center">
-        <div className="col-span-12 bg-white p-8 space-y-2 rounded shadow-lg">
+        <div className="col-span-12 bg-white p-8 space-y-2">
           <p className={`${greatVibes.className} text-4xl font-semibold text-gray-800`}>
             Secondary Sponsors
           </p>
