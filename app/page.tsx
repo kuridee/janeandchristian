@@ -28,6 +28,7 @@ export default function Home() {
           <p className={`${poppins.className} text-gray-600`}>
             <span className="font-medium">Address:</span> C. F Perfecto Street, Mandurriao, Iloilo City
           </p>
+          <br></br>
 
           <h2 className={`${poppins.className} text-2xl font-semibold text-gray-800`}>
             Reception
