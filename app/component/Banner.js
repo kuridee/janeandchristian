@@ -36,7 +36,7 @@ export default function Banner() {
       <div className="flex flex-col items-center space-y-6 px-4">
         {/* Subtitle */}
         <p
-          className={`${poppins.className} text-xl sm:text-2xl md:text-3xl tracking-wide text-white subtitle`}
+          className={`${poppins.className} text-xl sm:text-2xl md:text-3xl tracking-wide text-gray-900 subtitle`}
         >
           The Wedding of
         </p>
@@ -47,7 +47,7 @@ export default function Banner() {
             Christian
           </span>
 
-          <span className="px-2 py-1 text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[4rem] tracking-widest text-gray-900 slash">
+          <span className="px-2 py-1 text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-[6rem] tracking-widest text-white slash">
             /
           </span>
 

@@ -55,7 +55,7 @@ useEffect(() => {
       <div className=" min-h-screen flex items-center justify-center px-4  ">
 
         <div className="max-w-md w-full  p-8 flex flex-col items-center text-center space-y-4 fade-in-on-scroll">
-          <h2 className={`${poppins.className} text-2xl font-semibold text-gray-800` }>
+          <h2 className={`${poppins.className} text-2xl font-semibold text-[#F875AA]` }>
             Wedding Details
           </h2>
           <p className={`${poppins.className} text-gray-600`}>
@@ -69,7 +69,7 @@ useEffect(() => {
           </p>
           <br></br>
 
-          <h2 className={`${poppins.className} text-2xl font-semibold text-gray-800`}>
+          <h2 className={`${poppins.className} text-2xl font-semibold text-[#F875AA]`}>
             Reception
           </h2>
           <p className={`${poppins.className} text-gray-600`}>
@@ -153,12 +153,12 @@ useEffect(() => {
             Secondary Sponsors
           </p>
           <div className={`${poppins.className} space-y-1 mt-4 fade-in-on-scroll`}>
-            <p>Mr. Ricky Prudente</p>
-            <p>Mr. Rowell Prudente</p>
-            <p>Mr. Christian Prudente</p>
-            <p>Mrs. Mechelle Prudente</p>
-            <p>Mrs. Era Jean Prudente</p>
-            <p>Ms. Noemie Basal</p>
+            <p>Ricky Prudente</p>
+            <p>Rowell Prudente</p>
+            <p>Christian Prudente</p>
+            <p>Mechelle Prudente</p>
+            <p>Era Jean Prudente</p>
+            <p>Noemie Basal</p>
           </div>
         </div>
       </div>
@@ -340,15 +340,16 @@ Don’t forget to tag us when you post your photos — we’d love
 
 
       {/* Secondary Sponsors */}
-      <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center">
-        <div className="col-span-12 bg-white p-8 space-y-2">
-         
-          <div className={`${poppins.className} space-y-1 mt-4`}>
-            <p className="text-4xl tracking-wid text-[#F875AA] fade-in-on-scroll">#ChrisGotHisJane</p>
-            
-          </div>
-        </div>
-      </div>
+<div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center">
+  <div className="col-span-12 bg-white p-8 space-y-2 flex justify-center">
+    <div className={`${poppins.className} space-y-1 mt-4 text-center`}>
+      <p className="text-4xl tracking-wide text-[#F875AA] fade-in-on-scroll">
+        #ChrisGotHisJane
+      </p>
+    </div>
+  </div>
+</div>
+
 
        {/* Secondary Sponsors */}
        <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
