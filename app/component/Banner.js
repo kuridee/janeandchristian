@@ -32,6 +32,7 @@ export default function Banner() {
         >
           The Wedding of
         </p>
+        
 
         {/* Groom / Bride with Staggered Delays */}
         <h1 className="flex flex-wrap justify-center items-center gap-2 text-center">
