@@ -1,14 +1,14 @@
-"use client"; // Important for Next.js 13+ pages/components
+"use client";
+
 import { Poppins, Great_Vibes } from "next/font/google";
 import Image from "next/image";
-import { useEffect } from "react";
-import $ from "jquery";
-
-
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Banner from "./component/Banner";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 const greatVibes = Great_Vibes({
@@ -17,368 +17,138 @@ const greatVibes = Great_Vibes({
 });
 
 export default function Home() {
-useEffect(() => {
-  // Initially hide all text sections
-  $(".fade-in-on-scroll").css("opacity", 0);
+  // State for smooth on-load animation
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  $(window).on("scroll", function () {
-    $(".fade-in-on-scroll").each(function () {
-      const offset = $(this).offset(); // offset can be undefined
-      if (!offset) return; // skip this element if offset is undefined
-
-      const top_of_element = offset.top;
-      const bottom_of_window = ($(window).scrollTop() ?? 0) + ($(window).height() ?? 0); // default to 0 if undefined
-
-      if (bottom_of_window > top_of_element + 100) {
-        $(this).animate({ opacity: 1 }, 1000);
-      }
-    });
-  });
-
-  // Trigger scroll on load to show elements already in view
-  $(window).trigger("scroll");
-}, []);
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   return (
-    <div className=" min-h-screen">
+    <>
+      <Banner />
 
-      {/* Secondary Sponsors */}
-      <div className="grid grid-cols-1 gap-4 px-4 text-center">
-  <div className="col-span-12 bg-white p-8 space-y-2 mt-[200px] mb-[100px]">
-    <p className={`${greatVibes.className} text-8xl font-semibold text-[#F875AA] fade-in-on-scroll`}>
-      You are invited.
-    </p>
-  </div>
-</div>
-
-      {/* Wedding Details */}
-      <div className=" min-h-screen flex items-center justify-center px-4  ">
-
-        <div className="max-w-md w-full  p-8 flex flex-col items-center text-center space-y-4 fade-in-on-scroll">
-          <h2 className={`${poppins.className} text-2xl font-semibold text-[#F875AA]` }>
-            Wedding Details
-          </h2>
-          <p className={`${poppins.className} text-gray-600`}>
-            <span className="font-medium">Date & Time:</span> December 26, 2025 - 2:00 PM
-          </p>
-          <p className={`${poppins.className} text-gray-600`}>
-            <span className="font-medium">Ceremony:</span> Espousal of Our Lady Parish Church
-          </p>
-          <p className={`${poppins.className} text-gray-600`}>
-            <span className="font-medium">Address:</span> C. F Perfecto Street, Mandurriao, Iloilo City
-          </p>
-          <br></br>
-
-          <h2 className={`${poppins.className} text-2xl font-semibold text-[#F875AA]`}>
-            Reception
-          </h2>
-          <p className={`${poppins.className} text-gray-600`}>
-            Grand Xing Imperial Hotel
-          </p>
-          <p className={`${poppins.className} text-gray-600`}>
-            H. Montinola Corner Muelle Loney Street, Iloilo City, 5000 Iloilo
-          </p>
-        </div>
-      </div>
-
-      {/* Wedding Entourage */}
-      <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        <p className={`${poppins.className} text-2xl font-semibold col-span-12 text-[#F875AA] fade-in-on-scroll`}>
-          Wedding Entourage
-        </p>
-
-        {/* Parents of the Groom */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide`}>
-            Parents of the Groom
-          </h3>
-          <p className={`${poppins.className}`}>Federico A. Amboy</p>
-          <p className={`${poppins.className}`}>Lida G. Maguad</p>
-        </div>
-
-        {/* Parents of the Bride */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide`}>
-            Parents of the Bride
-          </h3>
-          <p className={`${poppins.className}`}>Wilfredo B. Prudente</p>
-          <p className={`${poppins.className}`}>Virginia A. Prudente</p>
-        </div>
-      </div>
-
-      {/* Principal Sponsors */}
-      <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        <div className="col-span-12 bg-white p-8 space-y-2">
-          <p className={`${greatVibes.className} text-4xl font-semibold text-[#F875AA]`}>
-            Principal Sponsors
-          </p>
-          <div className={`${poppins.className} space-y-1 mt-4`}>
-            <p>Dr. Evan Sumido</p>
-            <p>Dr. Ma. Luche Sabayle</p>
-            <p>Dr. Lea Ymalay</p>
-            <p>Dr. Rodney Martirez</p>
-            <p>Dr. Lea Gabawa</p>
-            <p>Hon. Mayor Francis Amboy</p>
-            <p>Hon. Mayor Filomeno Ganzon</p>
-            <p>Gian Bocario</p>
-            <p>Jesus Prudente</p>
-            <p>Richard Alayon</p>
-            <p>Cairo Abdullah</p>
-            <p>Elsa Aguadera</p>
-            <p>Gladys Eslabon</p>
-           
-            <p>Starleen Macy Detoyato</p>
-            <p>Jeza Mae Prudente</p>
-            <p>Evelyn Alayon</p>
-           
-           
-            <p>Lori Lacson</p>
-            <p>Junaida Abdullah</p>
-            <p>PCMS May Flor Gequillo</p>
-            <p>Aileen Gritan</p>
-            <p>Kenneth Rimpillo</p>
-            <p>Nely Elisah Marcelo</p>
-            <p>Marjorie Faustos</p>
-            <p>Genie Rimpillo</p>
-            <p>Terisita Dumali</p>
-            
-          </div>
-        </div>
-      </div>
-
-      {/* Secondary Sponsors */}
-      <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center">
-        <div className="col-span-12 bg-white p-8 space-y-2">
-          <p className={`${greatVibes.className} text-4xl font-semibold text-[#F875AA] fade-in-on-scroll`}>
-            Secondary Sponsors
-          </p>
-          <div className={`${poppins.className} space-y-1 mt-4 fade-in-on-scroll`}>
-            <p>Ricky Prudente</p>
-            <p>Rowell Prudente</p>
-            <p>Christian Prudente</p>
-            <p>Mechelle Prudente</p>
-            <p>Era Jean Prudente</p>
-            <p>Noemie Basal</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Wedding Entourage */}
-      <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        {/* Parents of the Groom */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Ring Bearer
-          </h3>
-          <p className={`${poppins.className}`}> Timmy Maguad</p>
-        </div>
-
-        {/* Parents of the Bride */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left fade-in-on-scroll">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Bible Bearer
-          </h3>
-          <p className={`${poppins.className}`}>Shean Dwayne Gelilang</p>
+      <div className={`${poppins.className} min-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-16 text-stone-800`}>
+        
+        {/* Hero Section */}
+        <div className="flex flex-col justify-center items-center text-center py-8">
           
-        </div>
-
-      </div>
-
-      {/* Secondary Sponsors */}
-      <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        <div className="col-span-12 bg-white p-8 space-y-2">
-          <p className={`${greatVibes.className} text-4xl font-semibold text-[#F875AA]`}>
-          Coin Bearer
-          </p>
-          <div className={`${poppins.className} space-y-1 mt-4`}>
-            <p>Jaycon Prudente</p>
-            
+          {/* Top Accent Badge */}
+          <div 
+            className={`flex items-center justify-center gap-3 mb-4 transition-all duration-700 ease-out transform ${
+              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <span className="w-12 h-[1px] bg-rose-300/60"></span>
+            <span className="text-xs uppercase tracking-[0.3em] text-rose-800 font-medium">
+              We Got Married
+            </span>
+            <span className="w-12 h-[1px] bg-rose-300/60"></span>
           </div>
-        </div>
-      </div>
 
 
-      {/* Wedding Entourage */}
-      <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        {/* Parents of the Groom */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Best Man
-          </h3>
-          <p className={`${poppins.className}`}> Tim Maguad</p>
-        </div>
-
-        {/* Parents of the Bride */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left fade-in-on-scroll ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Maid of Honor
-          </h3>
-          <p className={`${poppins.className}`}>Irish Barcebal</p>
-          
-        </div>
-      </div>
-
-        {/* Wedding Entourage */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        {/* Parents of the Groom */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Groomsmen
-          </h3>
-          <p className={`${poppins.className}`}>Pat Alvin Dale Aungon</p>
-          <p className={`${poppins.className}`}>Ricky Gaborno</p>
-          <p className={`${poppins.className}`}>Marvic Porras</p>
-          <p className={`${poppins.className}`}>Nelson Carisma Jr.</p>
-          <p className={`${poppins.className}`}>Franz Angelo Amboy</p>
-          <p className={`${poppins.className}`}>Rey Angelo Barcebal</p>
-
-        </div>
-
-        {/* Parents of the Bride */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left fade-in-on-scroll ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Bridesmaids
-          </h3>
-          <p className={`${poppins.className}`}> Amerah Abdullah</p>
-          <p className={`${poppins.className}`}> Gina Mae Lagunday</p>
-          <p className={`${poppins.className}`}> Anna Marie Monica Flores</p>
-          <p className={`${poppins.className}`}> Rowelee Custodio</p>
-          <p className={`${poppins.className}`}> Jean-Jean Amante</p>
-          <p className={`${poppins.className}`}> Richel May Prudente </p>
-         
-        </div>
-      </div>
-
-       {/* Secondary Sponsors */}
-       <div className="grid grid-cols-1 gap-4 px-4 text-center fade-in-on-scroll">
-        <div className="col-span-12 bg-white p-8 space-y-2">
-          
-          <div className={`${poppins.className} space-y-1 mt-4`}>
-            <p>Louie Estaris</p>
-            <p>Geo Gumarang</p>
-            
-          </div>
-        </div>
-      </div>
-
-       {/* Wedding Entourage */}
-       <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        {/* Parents of the Groom */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Flower Girls
-          </h3>
-          <p className={`${poppins.className}`}> Bree Basal</p>
-          <p className={`${poppins.className}`}> Allysa Nicole Prudente</p>
-          <p className={`${poppins.className}`}> Ellie Magdalainne Torredo</p>
-
-        </div>
-
-        {/* Parents of the Bride */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide text-[#F875AA]`}>
-          Flower Boy 
-          </h3>
-          <p className={`${poppins.className}`}>Federico Amboy III </p>
-          
-        </div>
-      </div>
-
-        {/* Secondary Sponsors */}
-        <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        <div className="col-span-12 bg-white p-8 space-y-2">
-          <p className={`${greatVibes.className} text-4xl font-semibold text-gray-800`}>
-          Attire Guide
+          {/* Subtitle / Tagline */}
+          <p 
+            className={`text-stone-500 font-light text-base sm:text-lg max-w-md mx-auto mb-8 tracking-wide transition-all duration-1000 delay-500 ease-out transform ${
+              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            Together with their families, joyfully invite you to celebrate their love &amp; union
           </p>
 
-          <div className={`${poppins.className} space-y-1 mt-4 fade-in-on-scroll`}>
-            <p>Semi-Formal Attire</p>
-            <p>In honor of our special day, we kindly ask our
-               guests to wear these colors as part of our celebration.</p>
+          {/* Navigation Links Group */}
+          <div 
+            className={`flex flex-wrap items-center justify-center gap-4 max-w-xl mx-auto transition-all duration-1000 delay-700 ease-out transform ${
+              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            {/* Invitation Button (Red background removed) */}
+            <Link 
+              href="/invitation" 
+              className="px-6 py-2.5 bg-white text-stone-700 font-medium rounded-full border border-stone-200 shadow-sm hover:bg-stone-50 transition-all duration-300 min-w-[140px] text-sm text-center"
+            >
+              Invitation
+            </Link>
 
-               <Image
-                src="/images/im.png"
-                alt="Father"
-                width={200}     // ✅ Adjusted for a professional look
-                height={200}
-                className="rounded-md object-contain tex
-                t-center mx-auto" 
-              
+            <Link 
+              href="/theday" 
+              className="px-6 py-2.5 bg-white text-stone-700 font-medium rounded-full border border-stone-200 shadow-sm hover:bg-stone-50 transition-all duration-300 min-w-[140px] text-sm text-center"
+            >
+              The Day
+            </Link>
+
+            <Link 
+              href="/behind-the-scenes" 
+              className="px-6 py-2.5 bg-white text-stone-700 font-medium rounded-full border border-stone-200 shadow-sm hover:bg-stone-50 transition-all duration-300 min-w-[140px] text-sm text-center"
+            >
+              Behind The Scenes
+            </Link>
+          </div>
+
+          <div className="mt-10 text-rose-300 text-2xl">❦</div>
+        </div>
+
+        {/* Bride & Groom Showcase Section */}
+        <div 
+          className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto transition-all duration-1000 delay-900 ease-out transform ${
+            isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {/* Groom Card */}
+          <div className="bg-white border border-stone-100 shadow-sm rounded-3xl p-6 text-center space-y-4 group hover:shadow-md transition-all duration-500">
+            <div className="relative w-full h-[360px] rounded-2xl overflow-hidden bg-stone-100">
+              <Image
+                src="/images/thegroomsolo.jpg" // Path to Groom image
+                alt="The Groom - Christian"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            
+            </div>
+            <div>
+              <span className="text-xs uppercase tracking-[0.25em] text-rose-800 font-medium block mb-1">
+                The Groom
+              </span>
+              <h3 className={`${greatVibes.className} text-4xl text-stone-800`}>
+                Christian
+              </h3>
+              <p className="text-stone-500 text-xs sm:text-sm font-light mt-1">
+                "Forever begins today with the love of my life."
+              </p>
+            </div>
           </div>
-        </div>
-      </div>
 
-       {/* Wedding Entourage */}
-       <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        {/* Parents of the Groom */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-right ">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide`}>
-          Gift Guide
-          </h3>
-          <p className={`${poppins.className}`}> With all that we have, we’ve been truly blessed. 
-          Your presence and prayers are all that we request, 
-          but if you desire to give nonetheless, 
-          a gift in kind will do.</p>
-          
-        </div>
-
-        {/* Parents of the Bride */}
-        <div className="col-span-12 sm:col-span-6 bg-white p-8 space-y-4 text-center sm:text-left  fade-in-on-scroll">
-          <h3 className={`${greatVibes.className} text-4xl tracking-wide`}>
-          Snap and Share
-          </h3>
-          <p className={`${poppins.className}`}>Help us capture the moments!
-Share your favorite snapshots from our ceremony
- and reception using our official hashtag.
-Don’t forget to tag us when you post your photos — we’d love
- to see our special day through your eyes!</p>
-          
-        </div>
-      </div>
-
-
-      {/* Secondary Sponsors */}
-<div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center">
-  <div className="col-span-12 bg-white p-8 space-y-2 flex justify-center">
-    <div className={`${poppins.className} space-y-1 mt-4 text-center`}>
-      <p className="text-4xl tracking-wide text-[#F875AA] fade-in-on-scroll">
-        #ChrisGotHisJane
-      </p>
-    </div>
-  </div>
-</div>
-
-
-       {/* Secondary Sponsors */}
-       <div className="grid grid-cols-1 gap-4 px-4 mt-8 text-center fade-in-on-scroll">
-        <div className="col-span-12 bg-white p-8 space-y-2">
-          <p className={`${greatVibes.className} text-4xl font-semibold text-gray-800`}>
-          Wedding Timeline
-          </p>
-          <div className={`${poppins.className} space-y-1 mt-4`}>
-
-
-          <Image
-                src="/images/CHRISTIAN.png"
-                alt="Father"
-                width={700}     // ✅ Adjusted for a professional look
-                height={700}
-                className="rounded-md object-contain tex
-                t-center mx-auto fade-in-on-scroll" 
-              
+          {/* Bride Card */}
+          <div className="bg-white border border-stone-100 shadow-sm rounded-3xl p-6 text-center space-y-4 group hover:shadow-md transition-all duration-500">
+            <div className="relative w-full h-[360px] rounded-2xl overflow-hidden bg-stone-100">
+              <Image
+                src="/images/thebride.jpg" // Path to Bride image
+                alt="The Bride - Jane"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            
-            
+            </div>
+            <div>
+              <span className="text-xs uppercase tracking-[0.25em] text-rose-800 font-medium block mb-1">
+                The Bride
+              </span>
+              <h3 className={`${greatVibes.className} text-4xl text-stone-800`}>
+                Jane
+              </h3>
+              <p className="text-stone-500 text-xs sm:text-sm font-light mt-1">
+                "In your arms is where my heart belongs."
+              </p>
+            </div>
           </div>
         </div>
+
+        {/* Decorative Footer Symbol */}
+        <div className="text-center text-rose-300 text-2xl pt-8">
+          ❦
+        </div>
+
       </div>
-
-
-    
-
-      {/* End of container*/}
-    </div>
+    </>
   );
 }
