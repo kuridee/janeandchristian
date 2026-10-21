@@ -184,6 +184,7 @@ export default function TheDay() {
                 {photo.caption}
               </p>
             </div>
+            
           </div>
         ))}
       </div>
